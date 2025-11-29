@@ -22,9 +22,22 @@ const app = http.createServer((req, res) => {
     res.end();
     console.log("Served Styles");
     return;
+  } else if (req.url === "/not-found.jpeg") {
+    // Serve the 404 illustration image with correct content-type
+    try {
+      const img = fs.readFileSync("./not-found.jpeg");
+      res.writeHead(200, { "Content-Type": "image/jpeg" });
+      res.write(img);
+      res.end();
+      console.log("Served not-found.jpeg");
+      return;
+    } catch (err) {
+      console.error("Error reading not-found.jpeg:", err);
+      // fall through to 404 handler below
+    }
   } else {
     res.writeHead(404, { "Content-Type": "text/html" });
-    res.write("<h1>404 - Page Not Found</h1>");
+    pointToHtml(res, req, "./not_found.html");
     res.end();
     return;
   }
