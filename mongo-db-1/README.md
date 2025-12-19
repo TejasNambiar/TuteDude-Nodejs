@@ -91,5 +91,3 @@ See schema files for exact fields:
 ## Notes
 - Error handling is basic and returns `500` with the error message on unexpected failures.
 - Deleting a `Heading` cascades and deletes its `Task` documents to avoid orphaned tasks (see `deleteHeading` in [controller/controller.js](controller/controller.js)).
-
-If you'd like, I can also add a small Postman collection, example seed script, or format the README for GitHub with badges — tell me which next.
