@@ -85,7 +85,8 @@ See schema files for exact fields:
 - [index.js](index.js) — app entry (server + route mounting)
 - [connection/db-connection.js](connection/db-connection.js) — MongoDB connection helper
 - [routes/route.js](routes/route.js) — Express routes
-- [controller/controller.js](controller/controller.js) — request handlers
+- [controller/controller.js](controller/controller.js) — heading request handlers
+- [controller/taskController.js](controller/taskController.js) — task request handlers
 - [schema/heading.js](schema/heading.js), [schema/task.js](schema/task.js) — Mongoose models
 
 ## Notes

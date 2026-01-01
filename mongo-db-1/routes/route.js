@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const controller = require("../controller/controller");
+const taskController = require("../controller/taskController");
 
 // Root health
 router.get("/", controller.getAllEntitys);
@@ -13,12 +14,12 @@ router.put("/headings/:id", controller.updateHeading);
 router.delete("/headings/:id", controller.deleteHeading);
 
 // Tasks (nested under headings for creation/listing)
-router.post("/headings/:headingId/tasks", controller.createTask);
-router.get("/headings/:headingId/tasks", controller.getTasksByHeading);
+router.post("/headings/:headingId/tasks", taskController.createTask);
+router.get("/headings/:headingId/tasks", taskController.getTasksByHeading);
 
 // Individual task operations
-router.get("/tasks/:id", controller.getTaskById);
-router.put("/tasks/:id", controller.updateTask);
-router.delete("/tasks/:id", controller.deleteTask);
+router.get("/tasks/:id", taskController.getTaskById);
+router.put("/tasks/:id", taskController.updateTask);
+router.delete("/tasks/:id", taskController.deleteTask);
 
 module.exports = router;
